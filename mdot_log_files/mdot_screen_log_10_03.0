@@ -1,0 +1,67 @@
+[INFO] Rx Window 1
+[INFO] Rx Window 2
+[INFO] successfully sent data to gateway
+[INFO] sleeping 10s or until interrupt on DIO7 pin
+[INFO] application will resume after waking upý[INFO] light: 1680 [0x0690]
+[INFO] Preparing frame
+[INFO] Configure radio for TX
+[INFO] Configure radio for TX
+[INFO] Rx Window 1
+[INFO] Rx Window 2
+[INFO] successfully sent data to gateway
+[INFO] sleeping 10s or until interrupt on DIO7 pin
+[INFO] application will resume after waking upý[INFO] light: 1664 [0x0680]
+[INFO] Preparing frame
+[INFO] Configure radio for TX
+[INFO] Configure radio for TX
+[INFO] Rx Window 1
+[INFO] RxDone 15 bytes RSSI: -26 dB SNR: 60 cB
+[INFO] Packet for 01757806
+[INFO] Packet Received : Port: 0 FCnt: 00000015 Size: 0 ACK: 0 DUP: 0
+[INFO] Packet RSSI: -26 dB SNR: 60 cB
+[INFO] successfully sent data to gateway
+[INFO] sleeping 10s or until interrupt on DIO7 pin
+[INFO] application will resume after waking upý[INFO] light: 1664 [0x0680]
+[INFO] Preparing frame
+[INFO] Configure radio for TX
+[INFO] Configure radio for TX
+[INFO] Rx Window 1
+[INFO] Rx Window 2
+[INFO] successfully sent data to gateway
+[INFO] sleeping 10s or until interrupt on DIO7 pin
+[INFO] application will resume after waking upý[INFO] light: 1648 [0x0670]
+[INFO] Preparing frame
+[INFO] Configure radio for TX
+[INFO] Configure radio for TX
+[INFO] Rx Window 1
+[INFO] Rx Window 2
+[INFO] successfully sent data to gateway
+[INFO] sleeping 10s or until interrupt on DIO7 pin
+[INFO] application will resume after waking upý[INFO] light: 1648 [0x0670]
+[INFO] Preparing frame
+[INFO] Configure radio for TX
+[INFO] Configure radio for TX
+[INFO] Rx Window 1
+[INFO] RxDone 15 bytes RSSI: -26 dB SNR: 60 cB
+[INFO] Packet for 01757806
+[INFO] Packet Received : Port: 0 FCnt: 00000016 Size: 0 ACK: 0 DUP: 0
+[INFO] Packet RSSI: -26 dB SNR: 60 cB
+[INFO] successfully sent data to gateway
+[INFO] sleeping 10s or until interrupt on DIO7 pin
+[INFO] application will resume after waking upý[INFO] light: 1664 [0x0680]
+[INFO] Preparing frame
+[INFO] Configure radio for TX
+[INFO] Configure radio for TX
+[INFO] Rx Window 1
+[INFO] Rx Window 2
+[INFO] successfully sent data to gateway
+[INFO] sleeping 10s or until interrupt on DIO7 pin
+[INFO] application will resume after waking upý
+
+
+
+
+
+
+
+

@@ -1,0 +1,86 @@
+[INFO] Rx Window 1
+[INFO] Rx Window 2
+[ERROR] Failed to join network
+[ERROR] failed to join network -4:Join Error
+[INFO] waiting 3 s until next free channel
+[INFO] attempt 35 to join network
+[INFO] Send join request RxDelay: 5 Rx1Offset: 0 Rx2Freq: 923300000 Rx2Dr: 8
+[INFO] Configure radio for TX
+[INFO] Configure radio for TX
+[INFO] Configure radio for TX
+[INFO] Rx Window 2
+[ERROR] Failed to join network
+[ERROR] failed to join network -4:Join Error
+[INFO] waiting 2 s until next free channel
+[INFO] attempt 42 to join network
+[INFO] Send join request RxDelay: 5 Rx1Offset: 0 Rx2Freq: 923300000 Rx2Dr: 8
+[INFO] Configure radio for TX
+[INFO] Configure radio for TX
+[INFO] Configure radio for TX
+[INFO] Rx Window 1
+[INFO] Rx Window 2
+[ERROR] Failed to join network
+[ERROR] failed to join network -4:Join Error
+[INFO] waiting 3 s until next free channel
+[INFO] attempt 43 to join network
+[INFO] Send join request RxDelay: 5 Rx1Offset: 0 Rx2Freq: 923300000 Rx2Dr: 8
+[INFO] Configure radio for TX
+[INFO] Configure radio for TX
+[INFO] Configure radio for TX
+[INFO] Rx Window 1
+[INFO] Rx Window 2
+[ERROR] Failed to join network
+[ERROR] failed to join network -4:Join Error
+[INFO] waiting 2 s until next free channel
+[INFO] attempt 44 to join network
+[INFO] Send join request RxDelay: 5 Rx1Offset: 0 Rx2Freq: 923300000 Rx2Dr: 8
+[INFO] Configure radio for TX
+[INFO] Configure radio for TX
+[INFO] Configure radio for TX
+[INFO] Rx Window 1
+[INFO] Rx Window 2
+[ERROR] Failed to join network
+[ERROR] failed to join network -4:Join Error
+[INFO] waiting 2 s until next free channel
+[INFO] attempt 45 to join network
+[INFO] Send join request RxDelay: 5 Rx1Offset: 0 Rx2Freq: 923300000 Rx2Dr: 8
+[INFO] Configure radio for TX
+[INFO] Configure radio for TX
+[INFO] Configure radio for TX
+[INFO] Rx Window 1
+[INFO] Rx Window 2
+[ERROR] Failed to join network
+[ERROR] failed to join network -4:Join Error
+[INFO] waiting 2 s until next free channel
+[INFO] attempt 46 to join network
+[INFO] Send join request RxDelay: 5 Rx1Offset: 0 Rx2Freq: 923300000 Rx2Dr: 8
+[INFO] Configure radio for TX
+[INFO] Configure radio for TX
+[INFO] Configure radio for TX
+[INFO] Rx Window 1
+[INFO] Rx Window 2
+[ERROR] Failed to join network
+[ERROR] failed to join network -4:Join Error
+[INFO] waiting 2 s until next free channel
+[INFO] attempt 47 to join network
+[INFO] Send join request RxDelay: 5 Rx1Offset: 0 Rx2Freq: 923300000 Rx2Dr: 8
+[INFO] Configure radio for TX
+[INFO] Configure radio for TX
+[INFO] Configure radio for TX
+[INFO] Rx Window 1
+[INFO] Rx Window 2
+[ERROR] Failed to join network
+[ERROR] failed to join network -4:Join Error
+[INFO] waiting 1 s until next free channel
+[INFO] attempt 48 to join network
+[INFO] Send join request RxDelay: 5 Rx1Offset: 0 Rx2Freq: 923300000 Rx2Dr: 8
+[INFO] Configure radio for TX
+[WARNING] JoinBackoff: 61 seconds  Time On Air: 9552 / 36000
+[INFO] Configure radio for TX
+[INFO] Configure radio for TX
+[INFO] Rx Window 1
+[INFO] Rx Window 2
+[ERROR] Failed to join network
+[ERROR] failed to join network -4:Join Error
+[INFO] sleeping 56 s until next free channel
+[INFO] entering sleep (stop) mode 00000037

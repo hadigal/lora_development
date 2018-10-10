@@ -1,0 +1,65 @@
+[INFO] Configure radio for TX
+[INFO] Configure radio for TX
+[INFO] Rx Window 1
+[INFO] RxDone 17 bytes RSSI: -32 dB SNR: 65 cB
+[INFO] Packet for 01757806
+[INFO] Packet Received : Port: 0 FCnt: 00000003 Size: 0 ACK: 0 DUP: 0
+[INFO] Packet RSSI: -32 dB SNR: 65 cB
+[INFO] successfully sent data to gateway
+[INFO] sleeping 10s or until interrupt on DIO7 pin
+[INFO] application will resume after waking up�[INFO] light: 1664 [0x0680]
+[INFO] Preparing frame
+[INFO] Configure radio for TX
+[INFO] Configure radio for TX
+[INFO] Rx Window 1
+[INFO] RxDone 17 bytes RSSI: -28 dB SNR: 67 cB
+[INFO] Packet for 01757806
+[INFO] Packet Received : Port: 0 FCnt: 00000004 Size: 0 ACK: 0 DUP: 0
+[INFO] Packet RSSI: -28 dB SNR: 67 cB
+[INFO] successfully sent data to gateway
+[INFO] sleeping 10s or until interrupt on DIO7 pin
+[INFO] application will resume after waking up�[INFO] light: 1680 [0x0690]
+[INFO] Preparing frame
+[INFO] Configure radio for TX
+[INFO] Configure radio for TX
+[INFO] Rx Window 1
+[INFO] RxDone 20 bytes RSSI: -30 dB SNR: 70 cB
+[INFO] Packet for 01757806
+[INFO] Packet Received : Port: 0 FCnt: 00000005 Size: 0 ACK: 0 DUP: 0
+[INFO] Packet RSSI: -30 dB SNR: 70 cB
+[INFO] successfully sent data to gateway
+[INFO] sleeping 10s or until interrupt on DIO7 pin
+[INFO] application will resume after waking up�[INFO] light: 1664 [0x0680]
+[INFO] Preparing frame
+[INFO] Configure radio for TX
+[INFO] Configure radio for TX
+[INFO] Rx Window 1
+[INFO] RxDone 17 bytes RSSI: -29 dB SNR: 65 cB
+[INFO] Packet for 01757806
+[INFO] Packet Received : Port: 0 FCnt: 00000006 Size: 0 ACK: 0 DUP: 0
+[INFO] Packet RSSI: -29 dB SNR: 65 cB
+[INFO] successfully sent data to gateway
+[INFO] sleeping 10s or until interrupt on DIO7 pin
+[INFO] application will resume after waking up�[INFO] light: 1680 [0x0690]
+[INFO] Preparing frame
+[INFO] Configure radio for TX
+[INFO] Configure radio for TX
+[INFO] Rx Window 1
+[INFO] RxDone 17 bytes RSSI: -28 dB SNR: 65 cB
+[INFO] Packet for 01757806
+[INFO] Packet Received : Port: 0 FCnt: 00000007 Size: 0 ACK: 0 DUP: 0
+[INFO] Packet RSSI: -28 dB SNR: 65 cB
+[INFO] successfully sent data to gateway
+[INFO] sleeping 10s or until interrupt on DIO7 pin
+[INFO] application will resume after waking up�[INFO] light: 1680 [0x0690]
+[INFO] Preparing frame
+[INFO] Configure radio for TX
+[INFO] Configure radio for TX
+[INFO] Rx Window 1
+[INFO] RxDone 20 bytes RSSI: -28 dB SNR: 65 cB
+[INFO] Packet for 01757806
+[INFO] Packet Received : Port: 0 FCnt: 00000008 Size: 0 ACK: 0 DUP: 0
+[INFO] Packet RSSI: -28 dB SNR: 65 cB
+[INFO] successfully sent data to gateway
+[INFO] sleeping 10s or until interrupt on DIO7 pin
+[INFO] application will resume after waking up�

@@ -1,0 +1,38 @@
+//Restarting the conduit gateway...
+admin@mtcdt:~# /etc/init.d/lora-network-server restart
+Stopping lora-network-server: OK
+Found MTAC-LORA-H-915 with MTAC-LORA-1.5 hardware
+Starting lora-network-server: OK
+
+// querying the connected mdot node list ---> The log shows the mdot device node 00-fe-36 has been connected.
+admin@mtcdt:~# lora-query --node-list
+Dev Addr     Dev EUI                  Class  Joined                Seq Num       Up     Down      1st      2nd  Dropped  RSSI min   max   avg  SNR min   max   avg  PER%
+01:75:78:06  00-80-00-00-00-00-fe-36  A      2018-10-03T22:34:17Z        6        0        0        0        0        0         0     0     0        0     0     0  0
+
+// querying the data received using mqtt probe....
+admin@mtcdt:~# mosquitto_sub -t lora/+/up
+{"tmst":58033459,"chan":3,"rfch":0,"freq":902.9,"stat":1,"modu":"LORA","datr":"SF7BW125","codr":"4/5","lsnr":9.0,"rssi":-26,"opts":"","size":2,"fcnt":12,"cls":0,"port":1,"mhdr":"4006787501800c00","data":"BpA=","appeui":"ab-1d-70-51-62-c4-cd-7c","deveui":"00-80-00-00-00-00-fe-36","ack":false,"adr":true,"gweui":"00-80-00-00-a0-00-2e-24","seqn":12,"time":"2018-10-03T22:36:30.743520Z"}
+{"tmst":70248275,"chan":3,"rfch":0,"freq":902.9,"stat":1,"modu":"LORA","datr":"SF7BW125","codr":"4/5","lsnr":10.2,"rssi":-27,"opts":"","size":2,"fcnt":13,"cls":0,"port":1,"mhdr":"4006787501800d00","data":"BpA=","appeui":"ab-1d-70-51-62-c4-cd-7c","deveui":"00-80-00-00-00-00-fe-36","ack":false,"adr":true,"gweui":"00-80-00-00-a0-00-2e-24","seqn":13,"time":"2018-10-03T22:36:42.957438Z"}
+{"tmst":82468251,"chan":0,"rfch":0,"freq":902.3,"stat":1,"modu":"LORA","datr":"SF7BW125","codr":"4/5","lsnr":9.5,"rssi":-30,"opts":"02","size":2,"fcnt":14,"cls":0,"port":1,"mhdr":"4006787501810e00","data":"BnA=","appeui":"ab-1d-70-51-62-c4-cd-7c","deveui":"00-80-00-00-00-00-fe-36","ack":false,"adr":true,"gweui":"00-80-00-00-a0-00-2e-24","seqn":14,"time":"2018-10-03T22:36:55.187916Z"}
+{"tmst":93694835,"chan":2,"rfch":0,"freq":902.7,"stat":1,"modu":"LORA","datr":"SF7BW125","codr":"4/5","lsnr":7.5,"rssi":-31,"opts":"0307","size":2,"fcnt":15,"cls":0,"port":1,"mhdr":"4006787501820f00","data":"BpA=","appeui":"ab-1d-70-51-62-c4-cd-7c","deveui":"00-80-00-00-00-00-fe-36","ack":false,"adr":true,"gweui":"00-80-00-00-a0-00-2e-24","seqn":15,"time":"2018-10-03T22:37:06.415229Z"}
+{"tmst":104921396,"chan":7,"rfch":1,"freq":903.7,"stat":1,"modu":"LORA","datr":"SF7BW125","codr":"4/5","lsnr":9.5,"rssi":-36,"opts":"0307","size":2,"fcnt":16,"cls":0,"port":1,"mhdr":"4006787501821000","data":"BnA=","appeui":"ab-1d-70-51-62-c4-cd-7c","deveui":"00-80-00-00-00-00-fe-36","ack":false,"adr":true,"gweui":"00-80-00-00-a0-00-2e-24","seqn":16,"time":"2018-10-03T22:37:17.634514Z"}
+{"tmst":116147972,"chan":7,"rfch":1,"freq":903.7,"stat":1,"modu":"LORA","datr":"SF7BW125","codr":"4/5","lsnr":10.0,"rssi":-42,"opts":"030702","size":2,"fcnt":17,"cls":0,"port":1,"mhdr":"4006787501831100","data":"BqA=","appeui":"ab-1d-70-51-62-c4-cd-7c","deveui":"00-80-00-00-00-00-fe-36","ack":false,"adr":true,"gweui":"00-80-00-00-a0-00-2e-24","seqn":17,"time":"2018-10-03T22:37:28.869800Z"}
+{"tmst":127374516,"chan":5,"rfch":1,"freq":903.3,"stat":1,"modu":"LORA","datr":"SF7BW125","codr":"4/5","lsnr":9.8,"rssi":-45,"opts":"0307","size":2,"fcnt":18,"cls":0,"port":1,"mhdr":"4006787501821200","data":"BnA=","appeui":"ab-1d-70-51-62-c4-cd-7c","deveui":"00-80-00-00-00-00-fe-36","ack":false,"adr":true,"gweui":"00-80-00-00-a0-00-2e-24","seqn":18,"time":"2018-10-03T22:37:40.086114Z"}
+{"tmst":138601084,"chan":6,"rfch":1,"freq":903.5,"stat":1,"modu":"LORA","datr":"SF7BW125","codr":"4/5","lsnr":6.8,"rssi":-48,"opts":"0307","size":2,"fcnt":19,"cls":0,"port":1,"mhdr":"4006787501821300","data":"BnA=","appeui":"ab-1d-70-51-62-c4-cd-7c","deveui":"00-80-00-00-00-00-fe-36","ack":false,"adr":true,"gweui":"00-80-00-00-a0-00-2e-24","seqn":19,"time":"2018-10-03T22:37:51.324180Z"}
+
+
+// This is after powering off the mdot dev board.. still the device is enumerated in node list
+// Error?? look into this!!
+admin@mtcdt:~# lora-query --node-list
+Dev Addr     Dev EUI                  Class  Joined                Seq Num       Up     Down      1st      2nd  Dropped  RSSI min   max   avg  SNR min   max   avg  PER%
+01:75:78:06  00-80-00-00-00-00-fe-36  A      2018-10-03T22:34:17Z       25       18       10       10        0        0       -48   -25   -34      6.8  10.5   9.4  0
+
+// same log even after successfully restarting the gateway..!!?
+admin@mtcdt:~# /etc/init.d/lora-network-server restart
+Stopping lora-network-server: OK
+Found MTAC-LORA-H-915 with MTAC-LORA-1.5 hardware
+Starting lora-network-server: ^[[AOK
+admin@mtcdt:~# lora-query --node-list
+Dev Addr     Dev EUI                  Class  Joined                Seq Num       Up     Down      1st      2nd  Dropped  RSSI min   max   avg  SNR min   max   avg  PER%
+01:75:78:06  00-80-00-00-00-00-fe-36  A      2018-10-03T22:34:17Z       25        0        0        0        0        0         0     0     0        0     0     0  0
+admin@mtcdt:~#
