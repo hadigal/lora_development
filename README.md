@@ -1,5 +1,7 @@
-# **Multiconnect mdot - conduit setup and communication:**
-# **----------------------------------------------------------------------------**
+# OPTIMIZED PLACEMENT OF LORA GATEWAY AND NODES #
+# **---------------------------------------------**
+## **Multiconnect mdot - conduit setup and communication:**
+## **-----------------------------------------------------**
 
 ## **Configuring the conduit gateway:**
 ## **---------------------------------------------------------------------------**
@@ -28,15 +30,15 @@
 3. Check if the device is enumrated in the /dev directory for linux machine; it should be visible as `/dev/ttyASM0` and `/dev/ttyXRUSB`. I used screen to access the device.
    - `screen /dev/ttyASM0 115200` 115200 is the baud rate.
 4. following are the set of commands needed to configure the developer board:
-  - `mosquitto_sub -t /lora/+/up`
-  - `at&v` : list current configured settings for the mdot. Make changes as per the
+   - `mosquitto_sub -t /lora/+/up`
+   - `at&v` : list current configured settings for the mdot. Make changes as per the
       conduit config file
-  - `at+fsb=7` : set frequencySubBand for mdot to certain value as per conduit config
-  - `at+ni=1,<network_username_set>` : to set the mdot username to conduit config
-  - `at+nk=1,<network_passphrase_set>`: passpharse
-  - `at&w` : save to memory
-  - `at2` : reset and start with the changes
-  - `at+join` : join the mdot to the gateway.
+   - `at+fsb=7` : set frequencySubBand for mdot to certain value as per conduit config
+   - `at+ni=1,<network_username_set>` : to set the mdot username to conduit config
+   - `at+nk=1,<network_passphrase_set>`: passpharse
+   - `at&w` : save to memory
+   - `at2` : reset and start with the changes
+   - `at+join` : join the mdot to the gateway.
 
 5. Now on the conduit side check whether mdot has joined successfully or not:
    - `lora-query --node-list` :  this should list out the connected mdot node
