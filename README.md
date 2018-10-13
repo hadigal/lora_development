@@ -64,3 +64,12 @@
     - follow the step by step process to setup the development environment.
     - Once you are done try out some examples from the following address:
 	* https://os.mbed.com/teams/MultiTech/code/Dot-Examples/
+
+## **Solution if you are not able to reflash the mdot**
+- This happens for the lora module code especially eg. the code to tx and rx using lora and mDot
+- To reprogram follow the below steps:
+  1. Need to delete the  node from the gateway(conduit):
+     * `lora-query -n` -- This will give you a list of mdot nodes connected to the gateway
+  2. Now run the following command to delete the desired node from the above list:
+     - FYI the node id is printed on the mdot module. cmd: `lora-query -x device <mdot/xdot_node_id>`
+     - On success you will get the following message on the terminal: **{status:"success"}**
