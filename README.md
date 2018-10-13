@@ -1,11 +1,8 @@
 # OPTIMIZED PLACEMENT OF LORA GATEWAY AND NODES #
-# **--------------------------------------------------------------------------------**
+
 ## **Multiconnect mdot - conduit setup and communication:**
-## **--------------------------------------------------------------------------------**
 
-## **Configuring the conduit gateway:**
-## **--------------------------------------------------------------------------------**
-
+### **1. Configuring the conduit gateway:**
 - ssh into the mlinux based conduit gateway:
   `ssh admin@<conduit_IP_addr>`
 - Look for `/opt/lora/lora-network-server.conf.sample` file under `/opt/lora` directory
@@ -22,9 +19,7 @@
 - Once you have finished editing the restart the conduit gateway:
   * `/etc/init.d/lora-network-server restart`; can also use linux based `systemctl restart` command
 
-## **Configuring the mdot**
-## **--------------------------------------------------------------------------------**
-
+### **2. Configuring the mdot**
 1. After connecting the mdot module securely with the mdot developer board; connect it using USB to connect to PC.
 2. Make sure you flash the AT command firmware on to the developer board first. The flashing procedure is mentioned separately below.
 3. Check if the device is enumrated in the /dev directory for linux machine; it should be visible as `/dev/ttyASM0` and `/dev/ttyXRUSB`. I used screen to access the device.
@@ -52,8 +47,7 @@
    - Now on conduit side again you can see the information from the packet received
    - This information contains all the fields from the network params used for connection along with msg sent which is encoded in **BASE64** format. Convert this to ASCII for a readable format message.
 
-## **Configuring the eclipse for mdot development**
-## **--------------------------------------------------------------------------------**
+### **3. Configuring the eclipse for mdot development**
 - You can use offfline or online ide as per your needs.
 - For Offline:
   * clone the git repo for libmdot-mbed5: `git clone https://github.com/MultiTechSystems/libmDot-mbed5.git`
