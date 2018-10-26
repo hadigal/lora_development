@@ -67,3 +67,41 @@
   2. Now run the following command to delete the desired node from the above list:
      - FYI the node id is printed on the mdot module. cmd: `lora-query -x device <mdot/xdot_node_id>`
      - On success you will get the following message on the terminal: **{status:"success"}**
+
+## **Dynamically updating spreading factor(data rate) for the mdot**
+- The data rate is directly related to the SF; it decides the amount of data which can be transmitted across to the gateway using the conduit.
+- Higher the SF means lower the BW and data rate.
+- For US channel (915 MHz) band the following spreading factors are available:
+  * SF10BW125 = DR0; PL --> 11B
+  * SF9BW125 = DR1; PL --> 53B
+  * SF8BW125 = DR2; PL --> 129B
+  * SF7BW125 = DR3; PL --> 242B
+  * SF8BW500 = DR4; PL --> 242B
+### **1. Using the AT command firmware on the mdot**
+- Flash the mdot with the any of the two versions of AT fw: 3.0.0 or 3.1.0 as per the process mentioned above.
+- Open the COM to input the set of commands `screen /dev/ttyXRUSB0 115200`
+- The following are the set of commands used to update the SF:
+  * `ATI`: Displays the firmware version flashed on the mdot
+  * `AT&V`: Displays the current settings for the mDot
+  * Aside: We need to set the settings at mdot as per the settings set in lora-network-server.conf in the gateway to join mdot with gateway
+  * Need to set frequencySubBand, joindelay, network_name, network_passphrase_set.
+  * `AT+FSB=<FSB_SET_IN_CONF_FILE>` this sets the frequencySubBand as per the input
+  * `AT+NI=1,<GATEWAY_NW_NAME>` this sets the gateway network network_name
+  * `AT+NK=1,<GATEWAY_NW_PASSPHRASE>` this sets the gateway network passpharse
+  * `AT&W`: This saves the current changes to memory
+  * `ATZ`: resets the mDot
+  * `AT+JOIN`: If all the above mentioned values are correct as per the conf file the mdot successfully joins with the gateway. On success it displays "successfully joined"
+  * `AT+NJS`: if the return val is 1 the  is joint to a gateway else 0.
+  * Now if want to send any data of larger size; change to spreading factor to higher value.
+  * `AT+SEND=<MSG_FOR_CONDUIT>`  this is used to send data to GATEWAY
+  * If the data size is higher than the size which the current data rate(SF) can handle message wont be relayed across; you will receive an message saying: **Data rate exceeds max size for given SF**
+  * To change the SF use following commands:
+    1. `AT+TXDR?`: This displays the current SF set for the mdot.
+    2. `AT+TXDR=<DR1-DR4>` to increase the PL size to above mentioned data sizes
+    3. `AT&W`: save the settings to memory
+    4. `ATZ`: reset the mdot by your choice if does not affect even if it is not done. Remember to rejoin the gateway using above mentioned command after reset.
+  * All this can be viewed on the gateway as well by querying the node list to see the joined node: `lora-query -n`
+  * To view the data packets received use mqtt broker to subscribe to the incoming lora topic: `mosquitto_sub -t lora/+/up`
+- The below screen-shot shows the affect of change in SF:
+  * ![Initial SF set to SF10BW125:](https://raw.githubusercontent.com/hadigal/lora_development/mdot_log_files/dynamic_sf_update/at_sf_high.png)
+  * ![After decreasing SF set to SF8BW125:](https://raw.githubusercontent.com/hadigal/lora_development/mdot_log_files/dynamic_sf_update/at_sf_dec_affect.png)

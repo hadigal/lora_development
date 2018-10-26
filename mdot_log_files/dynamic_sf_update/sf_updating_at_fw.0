@@ -1,0 +1,662 @@
+AT= +FSB=1
+
+OK
+AT+NI=MTCDT-19760557
+Invalid arguments
+
+ERROR
+ AT+NI=MTCDT-19760557                      AT+NI=MTCDT-19760557
+Invalid arguments
+
+ERROR
+AT+NI=1,MTCDT-19760557
+Set Network Name: MTCDT-19760557
+
+OK
+AT+NK=1,MTCDT-19760557
+Set Network Passphrase: MTCDT-19760557
+
+OK
+ AT+NK=1,MTCDT-19760557                       AT+NI=1,MTCDT-19760557                       AT+NK=1,MTCDT-19760557                          AT+NK=1,MTCDT-19760557                          
+
+AT&W
+
+OK
+ATZ
+
+OK
+AT+JOIN
+Successfully joined network
+
+OK
+a AT+NJS
+1
+
+OK
+AT+SEND=HELLO
+
+OK
+AT_TXDR?
+Command not found!
+
+ERROR
+ AT_TXDR?         AT+SEND=HELLO              AT+NJS      
+AT+TXDR?
+DR0 - SF10BW125
+
+OK
+at  AT+SEND  =HELLO QOR   WORLD
+Tx buffer filled by MAC Commands, send data again
+
+ERROR
+AT+= SEND  =HE ;;  LL
+48454c4c4f
+
+OK
+help AT+TXDR
+AT+TXDR: Set the Tx data rate for all channels
+
+OK
+    help AT+TXDR             AT+SEND=HE LL              AT+SEND=HELLO WORLD                    AT+TXDR?         AT_TXDR?         AT+SEND=HELLO              AT+NJS      
+
+AT+txdr    TXDR=?
+AT+TXDR: 7-10|DR0-DR15, Depends on Channel Plan
+
+OK
+ AT+TXDR=? 7         
+AT= +TXDR=7
+TX data rate invalid
+
+ERROR
+ AT+TXDR=7 sf_7    SF_7
+TX data rate invalid
+
+ERROR
+ AT+TXDR=SF_7    DR0
+
+OK
+ AT+TXDR=DR0            AT+TXDR=SF_7             AT+TXDR=7          AT+TXDR=?
+AT+TXDR: 7-10|DR0-DR15, Depends on Channel Plan
+
+OK
+ AT+TXDR=?          AT+TXDR=DR0            AT+TXDR=SF_7             AT+TXDR=7          AT+TXDR=?          help AT+TXDR             AT+SEND=HE LL              AT+SEND=HELLO WORLD                    AT+SEND=HE LL              help AT+TXDR             AT+TXDR=?          AT+TXDR=7          AT+TXDR=?          help AT+TXDR
+AT+TXDR: Set the Tx data rate for all channels
+
+OK
+AT+TXDR?
+DR0 - SF10BW125
+
+OK
+T ATZ
+
+OK
+T AT+TXDR=?  ?
+DR0 - SF10BW125
+
+OK
+ AT+TXDR?        
+
+AT+TXDR=7
+TX data rate invalid
+
+ERROR
+ AT+TXDR=7 10
+TX data rate invalid
+
+ERROR
+ AT+TXDR=10  sf_7
+TX data rate invalid
+
+ERROR
+ AT+TXDR=sf_7    SF_7
+TX data rate invalid
+
+ERROR
+ AT+TXDR=SF_7    DR0
+
+OK
+ AT+TXDR=DR0    - =9
+TX data rate invalid
+
+ERROR
+ AT+TXDR=9         
+
+
+
+AT+t TXDR?
+DR0 - SF10BW125
+
+OK
+ AT+TXDR?        
+
+AT+TXDR=DR1
+
+OK
+ AT+TXDR=DR1            AT+TXDR?
+DR1 - SF9BW125
+
+OK
+SF  SF  SD  AT+= txdr    TXDR=dr  DT2=   R2
+
+OK
+AT+t TXDR R?
+DR2 - SF8BW125
+
+OK
+At  at  AT+SEND=HELLO WORLD
+Network not joined
+
+ERROR
+ AT+SEND=HELLO WORLD                    AT+TXDR?         AT+TXDR=DR2            AT+TXDR?         AT+TXDR=DR1            AT+TXDR?         AT+TXDR=9          AT+TXDR=DR0            AT+TXDR=SF_7             AT+TXDR=sf_7            atz
+
+OK
+
+
+ATZ
+
+OK
+AT+TXDR?
+DR0 - SF10BW125
+
+OK
+AT= +TXDR?
+DR0 - SF10BW125
+
+OK
+ AT+TXDR?        
+
+at  AT+NJS
+0
+
+OK
+AT_ +TXDR=DR2
+
+OK
+at  AT+JOIJN      I
+MultiTech mDot
+Firmware : 3.0.0-mbed144
+Library  : 3.0.0-mbed144
+MTS-Lora : 3.0.0
+
+OK
+ ATI   
+
+AT&V
+Device ID:		00:80:00:00:00:00:fe:36
+Default Frequency Band:	US915
+Current Frequency Band:	US915
+Frequency Sub Band:	1
+Public Network:		off
+Start Up Mode:		COMMAND
+Network Address:	00000000
+Network ID:		ab:1d:70:51:62:c4:cd:7c
+Network ID Passphrase:	MTCDT-19760557
+Network Key:		df.28.f6.06.ad.31.99.aa.99.7e.37.03.1b.12.73.77
+Network Key Passphrase:	MTCDT-19760557
+Network Session Key:	00.00.00.00.00.00.00.00.00.00.00.00.00.00.00.00
+Data Session Key:	00.00.00.00.00.00.00.00.00.00.00.00.00.00.00.00
+Network Join Mode:	OTA
+Network Join Retries:	2
+Preserve Session:	off
+Join Byte Order:	LSB
+Join Delay:		1
+Join Rx1 DR Offset:	0
+Join Rx2 Datarate:	DR8 - SF12BW500
+Join Rx2 Frequency:	923300000
+App Port:		1
+Listen Before Talk:	off
+Link Check Threshold:	off
+Link Check Count:	off
+Error Correction:	1 bytes
+ACK Retries:		off
+Packet Repeat:		1
+Encryption:		on
+CRC:			on
+Adaptive Data Rate:	off
+Command Echo:		on
+Verbose Response:	off
+Tx Frequency:		0
+Tx Data Rate:		DR2 - SF8BW125
+Min/Max Tx Data Rate:	Min: DR0 - SF10BW125
+			Max: DR4 - SF8BW500
+Tx Power:		30
+Min/Max Tx Power:	Min: 0
+			Max: 30
+Tx Antenna Gain:	3
+Tx Wait:		on
+Tx Inverted Signal:	off
+Rx Delay:		1 s
+Rx Inverted Signal:	on
+Rx Output Style:	HEXADECIMAL
+Debug Baud Rate:	115200
+Serial Baud Rate:	115200
+Serial Flow Control:	off
+Serial Clear On Error:	on
+Wake Mode:		INTERVAL
+Wake Interval:		10 s
+Wake Delay:		100 ms
+Wake Timeout:		20 ms
+Wake Pin:		DI8
+Log Level:		0
+
+OK
+a AT+JP OIN
+Successfully joined network
+
+OK
+at  AT+NJS
+1
+
+OK
+AT+SNER   ENBD  D=HELLO WORD LD
+
+OK
+AT+SENSD  D+HE   +HELLO      =HELLO WOLRD   RLD
+
+OK
+at==    AT&W
+
+OK
+at  AT+TXDR=DR0
+
+OK
+AT&W
+
+OK
+AT&V
+Device ID:		00:80:00:00:00:00:fe:36
+Default Frequency Band:	US915
+Current Frequency Band:	US915
+Frequency Sub Band:	1
+Public Network:		off
+Start Up Mode:		COMMAND
+Network Address:	000d373d
+Network ID:		ab:1d:70:51:62:c4:cd:7c
+Network ID Passphrase:	MTCDT-19760557
+Network Key:		df.28.f6.06.ad.31.99.aa.99.7e.37.03.1b.12.73.77
+Network Key Passphrase:	MTCDT-19760557
+Network Session Key:	c4.ab.73.e1.cd.3e.e9.a8.c3.51.7f.44.bd.f3.90.d1
+Data Session Key:	65.72.37.56.e9.f7.da.ba.3d.e2.26.4c.76.29.02.9c
+Network Join Mode:	OTA
+Network Join Retries:	2
+Preserve Session:	off
+Join Byte Order:	LSB
+Join Delay:		1
+Join Rx1 DR Offset:	0
+Join Rx2 Datarate:	DR8 - SF12BW500
+Join Rx2 Frequency:	923300000
+App Port:		1
+Listen Before Talk:	off
+Link Check Threshold:	off
+Link Check Count:	off
+Error Correction:	1 bytes
+ACK Retries:		off
+Packet Repeat:		1
+Encryption:		on
+CRC:			on
+Adaptive Data Rate:	off
+Command Echo:		on
+Verbose Response:	off
+Tx Frequency:		0
+Tx Data Rate:		DR0 - SF10BW125
+Min/Max Tx Data Rate:	Min: DR0 - SF10BW125
+			Max: DR4 - SF8BW500
+Tx Power:		30
+Min/Max Tx Power:	Min: 0
+			Max: 30
+Tx Antenna Gain:	3
+Tx Wait:		on
+Tx Inverted Signal:	off
+Rx Delay:		1 s
+Rx Inverted Signal:	on
+Rx Output Style:	HEXADECIMAL
+Debug Baud Rate:	115200
+Serial Baud Rate:	115200
+Serial Flow Control:	off
+Serial Clear On Error:	on
+Wake Mode:		INTERVAL
+Wake Interval:		10 s
+Wake Delay:		100 ms
+Wake Timeout:		20 ms
+Wake Pin:		DI8
+Log Level:		0
+
+OK
+at  AT+NJS
+1
+
+OK
+AT+SNE  ENBD  D=HELLP O WORLD
+4845204c4c
+
+OK
+ATZ
+
+OK
+AR T&V
+Device ID:		00:80:00:00:00:00:fe:36
+Default Frequency Band:	US915
+Current Frequency Band:	US915
+Frequency Sub Band:	1
+Public Network:		off
+Start Up Mode:		COMMAND
+Network Address:	00000000
+Network ID:		ab:1d:70:51:62:c4:cd:7c
+Network ID Passphrase:	MTCDT-19760557
+Network Key:		df.28.f6.06.ad.31.99.aa.99.7e.37.03.1b.12.73.77
+Network Key Passphrase:	MTCDT-19760557
+Network Session Key:	00.00.00.00.00.00.00.00.00.00.00.00.00.00.00.00
+Data Session Key:	00.00.00.00.00.00.00.00.00.00.00.00.00.00.00.00
+Network Join Mode:	OTA
+Network Join Retries:	2
+Preserve Session:	off
+Join Byte Order:	LSB
+Join Delay:		1
+Join Rx1 DR Offset:	0
+Join Rx2 Datarate:	DR8 - SF12BW500
+Join Rx2 Frequency:	923300000
+App Port:		1
+Listen Before Talk:	off
+Link Check Threshold:	off
+Link Check Count:	off
+Error Correction:	1 bytes
+ACK Retries:		off
+Packet Repeat:		1
+Encryption:		on
+CRC:			on
+Adaptive Data Rate:	off
+Command Echo:		on
+Verbose Response:	off
+Tx Frequency:		0
+Tx Data Rate:		DR0 - SF10BW125
+Min/Max Tx Data Rate:	Min: DR0 - SF10BW125
+			Max: DR4 - SF8BW500
+Tx Power:		30
+Min/Max Tx Power:	Min: 0
+			Max: 30
+Tx Antenna Gain:	3
+Tx Wait:		on
+Tx Inverted Signal:	off
+Rx Delay:		1 s
+Rx Inverted Signal:	on
+Rx Output Style:	HEXADECIMAL
+Debug Baud Rate:	115200
+Serial Baud Rate:	115200
+Serial Flow Control:	off
+Serial Clear On Error:	on
+Wake Mode:		INTERVAL
+Wake Interval:		10 s
+Wake Delay:		100 ms
+Wake Timeout:		20 ms
+Wake Pin:		DI8
+Log Level:		0
+
+OK
+AT+SEND=HELLO WORLD HRIH SHI
+Data exceeds datarate max payload 11 bytes
+
+ERROR
+AT+TXDR=DR2
+
+OK
+ AT+TXDR=DR2            AT+SEND=HELLO WORLD HRISHI                          
+
+AT+ &W
+
+OK
+AT&V
+Device ID:		00:80:00:00:00:00:fe:36
+Default Frequency Band:	US915
+Current Frequency Band:	US915
+Frequency Sub Band:	1
+Public Network:		off
+Start Up Mode:		COMMAND
+Network Address:	00000000
+Network ID:		ab:1d:70:51:62:c4:cd:7c
+Network ID Passphrase:	MTCDT-19760557
+Network Key:		df.28.f6.06.ad.31.99.aa.99.7e.37.03.1b.12.73.77
+Network Key Passphrase:	MTCDT-19760557
+Network Session Key:	00.00.00.00.00.00.00.00.00.00.00.00.00.00.00.00
+Data Session Key:	00.00.00.00.00.00.00.00.00.00.00.00.00.00.00.00
+Network Join Mode:	OTA
+Network Join Retries:	2
+Preserve Session:	off
+Join Byte Order:	LSB
+Join Delay:		1
+Join Rx1 DR Offset:	0
+Join Rx2 Datarate:	DR8 - SF12BW500
+Join Rx2 Frequency:	923300000
+App Port:		1
+Listen Before Talk:	off
+Link Check Threshold:	off
+Link Check Count:	off
+Error Correction:	1 bytes
+ACK Retries:		off
+Packet Repeat:		1
+Encryption:		on
+CRC:			on
+Adaptive Data Rate:	off
+Command Echo:		on
+Verbose Response:	off
+Tx Frequency:		0
+Tx Data Rate:		DR2 - SF8BW125
+Min/Max Tx Data Rate:	Min: DR0 - SF10BW125
+			Max: DR4 - SF8BW500
+Tx Power:		30
+Min/Max Tx Power:	Min: 0
+			Max: 30
+Tx Antenna Gain:	3
+Tx Wait:		on
+Tx Inverted Signal:	off
+Rx Delay:		1 s
+Rx Inverted Signal:	on
+Rx Output Style:	HEXADECIMAL
+Debug Baud Rate:	115200
+Serial Baud Rate:	115200
+Serial Flow Control:	off
+Serial Clear On Error:	on
+Wake Mode:		INTERVAL
+Wake Interval:		10 s
+Wake Delay:		100 ms
+Wake Timeout:		20 ms
+Wake Pin:		DI8
+Log Level:		0
+
+OK
+AT+SEN   NJS
+0
+
+OK
+a AT+JOIN
+Successfully joined network
+
+OK
+AT+NJS
+1
+
+OK
+AT+   a AT+   AT+   AT  a AT+SEND=HR  HELLOE  WORK LD HRISHI
+
+OK
+ AT+SEND=HELLO WORLD HRISHI                           
+
+AT+TXDR=DR0
+
+OK
+T+  AT&W' 
+
+OK
+AE t T&V
+Device ID:		00:80:00:00:00:00:fe:36
+Default Frequency Band:	US915
+Current Frequency Band:	US915
+Frequency Sub Band:	1
+Public Network:		off
+Start Up Mode:		COMMAND
+Network Address:	000d373d
+Network ID:		ab:1d:70:51:62:c4:cd:7c
+Network ID Passphrase:	MTCDT-19760557
+Network Key:		df.28.f6.06.ad.31.99.aa.99.7e.37.03.1b.12.73.77
+Network Key Passphrase:	MTCDT-19760557
+Network Session Key:	8b.16.33.81.41.62.47.b5.71.f2.27.aa.d3.93.1e.c2
+Data Session Key:	ae.3f.53.b6.0f.af.f7.70.20.8b.69.47.31.e7.15.58
+Network Join Mode:	OTA
+Network Join Retries:	2
+Preserve Session:	off
+Join Byte Order:	LSB
+Join Delay:		1
+Join Rx1 DR Offset:	0
+Join Rx2 Datarate:	DR8 - SF12BW500
+Join Rx2 Frequency:	923300000
+App Port:		1
+Listen Before Talk:	off
+Link Check Threshold:	off
+Link Check Count:	off
+Error Correction:	1 bytes
+ACK Retries:		off
+Packet Repeat:		1
+Encryption:		on
+CRC:			on
+Adaptive Data Rate:	off
+Command Echo:		on
+Verbose Response:	off
+Tx Frequency:		0
+Tx Data Rate:		DR0 - SF10BW125
+Min/Max Tx Data Rate:	Min: DR0 - SF10BW125
+			Max: DR4 - SF8BW500
+Tx Power:		30
+Min/Max Tx Power:	Min: 0
+			Max: 30
+Tx Antenna Gain:	3
+Tx Wait:		on
+Tx Inverted Signal:	off
+Rx Delay:		1 s
+Rx Inverted Signal:	on
+Rx Output Style:	HEXADECIMAL
+Debug Baud Rate:	115200
+Serial Baud Rate:	115200
+Serial Flow Control:	off
+Serial Clear On Error:	on
+Wake Mode:		INTERVAL
+Wake Interval:		10 s
+Wake Delay:		100 ms
+Wake Timeout:		20 ms
+Wake Pin:		DI8
+Log Level:		0
+
+OK
+ATZ
+
+OK
+NJS
+Command not found!
+
+ERROR
+AT+NJS
+0
+
+OK
+AT+JP OIN
+Successfully joined network
+
+OK
+AT+NJS
+1
+
+OK
+AT+SEND=" HELLO WORLD HRISHI
+Data exceeds datarate max payload 11 bytes
+
+ERROR
+\ \ 
+
+AT+NJS
+1
+
+OK
+AT+TXDR=DR2
+
+OK
+AT+ &W
+
+OK
+AT+NJS
+1
+
+OK
+ATZ
+
+OK
+
+
+AT+NJS
+0
+
+OK
+AT+JOIN
+Successfully joined network
+
+OK
+AT&V
+Device ID:		00:80:00:00:00:00:fe:36
+Default Frequency Band:	US915
+Current Frequency Band:	US915
+Frequency Sub Band:	1
+Public Network:		off
+Start Up Mode:		COMMAND
+Network Address:	000d373d
+Network ID:		ab:1d:70:51:62:c4:cd:7c
+Network ID Passphrase:	MTCDT-19760557
+Network Key:		df.28.f6.06.ad.31.99.aa.99.7e.37.03.1b.12.73.77
+Network Key Passphrase:	MTCDT-19760557
+Network Session Key:	02.eb.76.e6.57.76.2e.c8.8e.cb.47.02.38.64.fb.93
+Data Session Key:	17.3c.e6.be.9c.10.4a.bc.9f.87.ef.3c.50.b3.ad.6b
+Network Join Mode:	OTA
+Network Join Retries:	2
+Preserve Session:	off
+Join Byte Order:	LSB
+Join Delay:		1
+Join Rx1 DR Offset:	0
+Join Rx2 Datarate:	DR8 - SF12BW500
+Join Rx2 Frequency:	923300000
+App Port:		1
+Listen Before Talk:	off
+Link Check Threshold:	off
+Link Check Count:	off
+Error Correction:	1 bytes
+ACK Retries:		off
+Packet Repeat:		1
+Encryption:		on
+CRC:			on
+Adaptive Data Rate:	off
+Command Echo:		on
+Verbose Response:	off
+Tx Frequency:		0
+Tx Data Rate:		DR2 - SF8BW125
+Min/Max Tx Data Rate:	Min: DR0 - SF10BW125
+			Max: DR4 - SF8BW500
+Tx Power:		30
+Min/Max Tx Power:	Min: 0
+			Max: 30
+Tx Antenna Gain:	3
+Tx Wait:		on
+Tx Inverted Signal:	off
+Rx Delay:		1 s
+Rx Inverted Signal:	on
+Rx Output Style:	HEXADECIMAL
+Debug Baud Rate:	115200
+Serial Baud Rate:	115200
+Serial Flow Control:	off
+Serial Clear On Error:	on
+Wake Mode:		INTERVAL
+Wake Interval:		10 s
+Wake Delay:		100 ms
+Wake Timeout:		20 ms
+Wake Pin:		DI8
+Log Level:		0
+
+OK
+AT+SEND=HELLO WORLD HRISHI
+
+OK
+HH
