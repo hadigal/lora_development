@@ -103,5 +103,7 @@
   * All this can be viewed on the gateway as well by querying the node list to see the joined node: `lora-query -n`
   * To view the data packets received use mqtt broker to subscribe to the incoming lora topic: `mosquitto_sub -t lora/+/up`
 - The below screen-shot shows the affect of change in SF:
-  * ![Initial SF set to SF10BW125:](https://github.com/hadigal/lora_development/blob/master/mdot_log_files/dynamic_sf_update/at_sf_high.png)
-  * ![After decreasing SF set to SF8BW125:](https://github.com/hadigal/lora_development/blob/master/mdot_log_files/dynamic_sf_update/at_sf_dec_affect.png)
+  * Initial SF set to SF10BW125:
+  ![Initial SF set to SF10BW125:](https://github.com/hadigal/lora_development/blob/master/mdot_log_files/dynamic_sf_update/at_sf_high.png)
+  * After decreasing SF set to SF8BW125:
+  ![After decreasing SF set to SF8BW125:](https://github.com/hadigal/lora_development/blob/master/mdot_log_files/dynamic_sf_update/at_sf_dec_affect.png)
