@@ -58,6 +58,7 @@
     - follow the step by step process to setup the development environment.
     - Once you are done try out some examples from the following address:
 	* https://os.mbed.com/teams/MultiTech/code/Dot-Examples/
+- **Note:** We can also use [arm-mbed-cli](https://github.com/ARMmbed/mbed-cli#using-mbed-cli) based development instead of configuring Eclipse.
 
 ## **Solution if you are not able to reflash the mdot**
 - This happens for the lora module code especially eg. the code to tx and rx using lora and mDot
