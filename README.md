@@ -108,3 +108,14 @@
   ![Initial SF set to SF10BW125:](https://github.com/hadigal/lora_development/blob/master/mdot_log_files/dynamic_sf_update/at_sf_high.png)
   * After decreasing SF set to SF8BW125:
   ![After decreasing SF set to SF8BW125:](https://github.com/hadigal/lora_development/blob/master/mdot_log_files/dynamic_sf_update/at_sf_dec_affect.png)
+
+### **2. mqtt client server development**
+- **What is MQTT?**
+  * MQTT stands for MQ Telemetry Transport. It is a publish/subscribe, extremely simple and lightweight messaging protocol, designed for constrained devices and low-bandwidth, high-latency or unreliable networks. The design principles are to minimize network bandwidth and device resource requirements whilst also attempting to ensure reliability and some degree of assurance of delivery. These principles also turn out to make the protocol ideal of the emerging “machine-to-machine” (M2M) or “Internet of Things” world of connected devices, and for mobile applications where bandwidth and battery power are at a premium.
+- We are developing a publish application in C using mqtt paho for marconi sever which will publish message to conduit server to get SF update value information.
+- The current application "./mqtt_client_marconi.c" is capable of sending a string message to the gateway.
+- This application will be extended to send SF update value information.
+- Please find the Instructions to install mqtt paho client for C library here: https://www.eclipse.org/paho/clients/c/
+- The below screen-shot shows the application publishing message to mqtt broker on the right and conduit gateway subscribing to the published message:
+  * left(conduit sub) right(marconi pub):
+  ![left(conduit sub) right(marconi pub)](https://github.com/hadigal/lora_development/blob/master/mqtt/mqtt_send_msg_to_gateway.png)
