@@ -8,7 +8,8 @@
   * ![NodeRed Flow sheet. On  the right most colum we can see the debug log showing the message from marconi](https://github.com/hadigal/lora_development/blob/master/mqtt/marconi_mdot_logs/nodered_mqtt_lora.png)
 
 - A snippet of screen log for mdot is as below:
-  * `[INFO] sleeping 10sPreparing frame
+
+  `[INFO] sleeping 10sPreparing frame
   [INFO] Configure radio for TX
   [INFO] Configu[INFO] successfully 2 cB
   [INFO] Packet for 01c3cc05
