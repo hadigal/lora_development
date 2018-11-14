@@ -1,0 +1,67 @@
+[INFO] application will resume after waking upý[INFO] Rx Window 1
+[INFO] Rx Window 2
+[INFO] successfully sent data to gateway
+[INFO] sleeping 10s or until interrupt on DIO7 pin
+[INFO] a[INFO] successfully sent data to gateway
+[INFO] sleeping 10s or until interrupt on DIO7 pin
+[INFO] application will res[INFO] Rx Window 2
+l interrupt on DIO7 pin
+[INFO] application will resume after waking upý[INFO] Rx Window 1
+O] Packet RSSI: -31 dB SNR: 67 cB
+[INFO] successfully sent data to gateway
+[INFO] sleeping 10s or until interrupt on DIO7 pin
+[INFO] application will resume after waking upý[INFO] light: 1adio for TX
+[INFO] Rx Window 1
+[INFO] RxDone 15 bure radio for TX
+[INFO] Rx Window 1
+[INFO] Rx Window 2
+me
+[INFO] Configure radio for TX
+[INFO] Configure radio for TX
+[INFO] Rx Window 1
+[INFO] Rx Window 2
+R: 70 cB
+[INFO] successfully sent data to gateway
+[INFO] sleep[INFO] successfully sent data to gateway
+[INFO] sleeping 10s or until interrupt on DIO7 pin
+[INFO] application will resume after waking upý[I
+[INFO] successfully sent data to gateway
+[INFO] sleeping 10s or until interrupt on DIO7 pin
+[INFO] application will resume after waking upý48 [0x0670]
+[INFO] Preparing frame
+[INFO] Configure radio for TX
+[INFO] Configure radio for TX
+for 01c3cc05
+[INFO] Packet Received : Port: 0 FCnt: 00000018 Size:[INFO] ligcessfully sent data to gateway
+[INFO] sleeping 10s or until interrupt ing frame
+[INFO] Configure radio for TX
+[INFO] Configure radio for TX
+[INFO] Rx Wket Received : Port: 0 FCnt: 0000001a Size: 0 ACK: 0 DUP: 0
+[INy
+[INFO] sleeping 10sPreparing frame
+[INFO] Configure radio for TX
+[INFO] Configu[INFO] successfully 2 cB
+[INFO] Packet for 01c3cc05
+[INFO] Packet Received : Port: 1 FCnt: 0000001b Size: 13 ACK: 0 DUP: 0
+Rx data: hello marconi [68656c6c6f206d6172636f6e69]
+[INFO] Packet RSSI: -29 dB SNR: 72 cB
+[INFO] successfow 1
+[INFO] light: 1648 [0x0670]
+[INFO] Pre[INFO] Rx Window 1
+NFO] light: 1648 [0x0670]
+[INFO] Preparing frame
+[INFO] Configure radio for TX
+[INFO] Configure radio for TX
+[INFO] Rx Window 1
+or until interrupt on DIO7 pin
+[INFO] application will resume after waking upýO] Rx Window 1
+[INFO] RxDone 26 bytes RSSI: -28 dB SNR: 65 cB
+[IN: 0 DUP: 0
+Rx data: hello marconi [68656c6c6f206d6172636f6e69]
+[I[INFO] light: 1664 [0x0680]
+[INFO] Preparing frame
+[INFO] Configure radio for TX
+[INFO] Configure radio for TX
+
+[INFO] Packet for 01c3cc05
+[INFO] Packet Received : Port: 0 F
