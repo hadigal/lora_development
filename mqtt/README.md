@@ -5,7 +5,7 @@
 - Used a lora output node with DevID configured for the desired mDot
 - The string message was then received in one of the receive windows by the mdot.
 - The flow for the nodeRed is as seen below:
-  * ![NodeRed Flow sheet. On  the right most colum we can see the debug log showing the message from marconi](https://github.com/hadigal/lora_development/tree/master/mqtt/marconi_mdot_logs/nodered_mqtt_lora.png)
+  * ![NodeRed Flow sheet. On  the right most colum we can see the debug log showing the message from marconi](https://github.com/hadigal/lora_development/blob/master/mqtt/marconi_mdot_logs/nodered_mqtt_lora.png)
 
 - A snippet of screen log for mdot is as below:
   * `[INFO] sleeping 10sPreparing frame
