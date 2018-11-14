@@ -5,7 +5,7 @@
 - Used a lora output node with DevID configured for the desired mDot
 - The string message was then received in one of the receive windows by the mdot.
 - The flow for the nodeRed is as seen below:
-  * ![NodeRed Flow sheet. On  the right most colum we can see the debug log showing the message from marconi](https://github.com/hadigal/lora_development/blob/master/mqtt/marconi_mdot_logs/nodered_mqtt_lora.png.png)
+  * ![NodeRed Flow sheet. On  the right most colum we can see the debug log showing the message from marconi](https://github.com/hadigal/lora_development/tree/master/mqtt/marconi_mdot_logs/nodered_mqtt_lora.png)
 
 - A snippet of screen log for mdot is as below:
   * `[INFO] sleeping 10sPreparing frame
@@ -34,4 +34,4 @@ Rx data: hello marconi [68656c6c6f206d6172636f6e69]
 [INFO] Configure radio for TX`
 
 - The screenshot of terminals on marconi and my machine with screen accessing mdot device is as seen below:
-  * ![Terminal logs: left(marconi terminal) right(screen log for mdot)](https://github.com/hadigal/lora_development/blob/master/mqtt/marconi_mdot_logs/nodered_mqtt_lora.png.png)
+  * ![Terminal logs: left(marconi terminal) right(screen log for mdot)](https://github.com/hadigal/lora_development/blob/master/mqtt/marconi_mdot_logs/mqtt_marconi_gateway_mdot.png)
