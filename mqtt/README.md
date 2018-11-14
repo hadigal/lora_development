@@ -9,7 +9,8 @@
 
 - A snippet of screen log for mdot is as below:
 
-  `[INFO] sleeping 10sPreparing frame
+  ```
+  [INFO] sleeping 10sPreparing frame
   [INFO] Configure radio for TX
   [INFO] Configu[INFO] successfully 2 cB
   [INFO] Packet for 01c3cc05
@@ -32,7 +33,8 @@
   [I[INFO] light: 1664 [0x0680]
   [INFO] Preparing frame
   [INFO] Configure radio for TX
-  [INFO] Configure radio for TX`
+  [INFO] Configure radio for TX
+  ```
 
 - The screenshot of terminals on marconi and my machine with screen accessing mdot device is as seen below:
   * ![Terminal logs: left(marconi terminal) right(screen log for mdot)](https://github.com/hadigal/lora_development/blob/master/mqtt/marconi_mdot_logs/mqtt_marconi_gateway_mdot.png)
