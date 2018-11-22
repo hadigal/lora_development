@@ -32,9 +32,6 @@ def plot(filePath):
     timeList1 = creatTimeList(filePath[0],1)
     timeList2 = creatTimeList(filePath[1],2)
 
-    print(timeList1)
-    print(timeList2)
-
     timeList1 = np.array(timeList1)
     print(timeList1.shape)
     timeList2 = np.array(timeList2)
@@ -55,8 +52,7 @@ def plot(filePath):
     plt.ylabel('constant')
     plt.title('timestamp for Received msg from mdot')
     plt.show()
-
-
+    
     return 0
 
 if __name__ == '__main__':
