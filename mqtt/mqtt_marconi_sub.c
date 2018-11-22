@@ -6,10 +6,7 @@
 #include "MQTTClient.h"
 
 #define ADDRESS     "tcp://localhost:1883"
-//#define ADDRESS "tcp://130.191.166.2:1883"
-//#define CLIENTID    "MISTClientSub"
 #define CLIENTID "MDOTGATEWAYSUB"
-//#define TOPIC       "mist"
 #define TOPIC       "testbedSub"
 #define QOS         1
 #define TIMEOUT     10000L
@@ -19,8 +16,6 @@ const char *password = "Q4opCvmQ";
 char *log_file_name_sub = "log_mqtt_marconi_sub.txt";
 char full_path[128] = "/home/adigal/mqtt_test/";
 FILE *file_obj;
-
-//fp = fopen(full_path,"w");
 
 volatile MQTTClient_deliveryToken deliveredtoken;
 
@@ -37,7 +32,7 @@ int msgarrvd(void *context, char *topicName, int topicLen, MQTTClient_message *m
   time_t secs = time(NULL);
   //writing the time in secs to file to plot a scatter graph
   fprintf(file_obj,"%ld\n",secs);
-  
+
   printf("Message arrived\n");
   printf("     topic: %s\n", topicName);
   printf("   message: ");
@@ -71,7 +66,7 @@ int main(int argc, char* argv[])
   conn_opts.cleansession = 1;
   conn_opts.username = username;
   conn_opts.password = password;
-  
+
   //log file
   strcat(full_path,log_file_name_sub);
   //FILE *file_obj;
@@ -99,4 +94,3 @@ int main(int argc, char* argv[])
   fclose(file_obj);
   return rc;
 }
-
