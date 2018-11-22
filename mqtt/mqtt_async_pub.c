@@ -45,7 +45,6 @@ int msgarvd(void *cliObj, char *topic, int topicLen, MQTTClient_message *msg)
 void cLost(void *cliObj, char *reason)
 {
   time_t temp = time(NULL);
-  //printf("temp:%s\n",asctime(localtime(&temp)));
   printf("\n::::::::::::::::Connection Lost::::::::::::::::\nReason:%s\n",reason);
   printf("timestamp:%s\n",asctime(localtime(&temp)));
   printf(":::::::::::::::::::::::::::::::::::::::::::::::\n");
