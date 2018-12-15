@@ -12,6 +12,27 @@ import re
 #         print("File not found\n")
 #         return False
 
+def plot_predicted(path):
+    val = parserFunct(path)
+    tSil = []
+    dc = 0.01
+    constant = (1/dc) -1
+    for toa in val:
+        toa_sec = float(float(toa)/1000)
+        temp = toa_sec*constant
+        tSil.append(temp)
+
+    tSil = np.array(tSil)
+    print("The tSil in secs:\n{}".format(tSil))
+    y_axis = np.array([1 for i in range(len(tSil))])
+    # plt.figure()
+    plt.plot(tSil, y_axis, color='g',linestyle='None', markersize = 10.0)
+    plt.scatter(tSil,y_axis, label='Time Silence')
+    # plt.xlabel('Time in secs')
+    # plt.ylabel('constant')
+    # plt.title('time silence between each rx pkt at gateway')
+    # plt.show()
+
 def fileExists(file):
     if os.path.exists(file):
         print("file:%s found\n"%file)
@@ -74,41 +95,20 @@ def plot(filePath):
     y_axis2 = np.array([1 for i in range(len(timeList2))])
 
     plt.figure()
-    plt.plot(timeList1,y_axis1,color='r', linestyle='None', markersize = 10.0)
-    plt.scatter(timeList1,y_axis1)
-    plt.xlabel('Time in secs')
-    plt.ylabel('constant')
-    plt.title('time mqtt pub msg from marconi')
-    plt.show()
-    plt.plot(timeList2,y_axis2,color='r', linestyle='None', markersize = 10.0)
-    plt.scatter(timeList2,y_axis2)
-    plt.xlabel('Time in secs')
-    plt.ylabel('constant')
-    plt.title('timestamp for mqtt sub msg from mdot')
-    plt.show()
+    plt.plot(timeList1, y_axis1, color='r', linestyle='None', markersize = 10.0)
+    plt.scatter(timeList1,y_axis1,label = 'mqtt pub')
+    # plt.xlabel('Time in secs')
+    # plt.ylabel('constant')
+    # plt.title('time mqtt pub msg from marconi')
+    # plt.show()
+    plt.plot(timeList2, y_axis2, color='b', linestyle='None', markersize = 10.0)
+    plt.scatter(timeList2,y_axis2, label = 'mqtt sub')
+    # plt.xlabel('Time in secs')
+    # plt.ylabel('constant')
+    # plt.title('timestamp for mqtt sub msg from mdot')
+    # plt.show()
 
     return 0
-
-def plot_predicted(path):
-    val = parserFunct(path)
-    tSil = []
-    dc = 0.01
-    constant = (1/dc) -1
-    for toa in val:
-        toa_sec = float(float(toa)/1000)
-        temp = toa_sec*constant
-        tSil.append(temp)
-
-    tSil = np.array(tSil)
-    print("The tSil in secs:\n{}".format(tSil))
-    y_axis = np.array([1 for i in range(len(tSil))])
-    plt.figure()
-    plt.plot(tSil,y_axis,color='r', linestyle='None', markersize = 10.0)
-    plt.scatter(tSil,y_axis)
-    plt.xlabel('Time in secs')
-    plt.ylabel('constant')
-    plt.title('time silence between each rx pkt at gateway')
-    plt.show()
 
 
 if __name__ == '__main__':
@@ -118,3 +118,6 @@ if __name__ == '__main__':
         print("Error")
     path = r"/home/hadigal/Desktop/test_lora_logs.log"
     plot_predicted(path)
+    plt.title('Consolidated graph showing predicted time silence with actual time to subscribe tx pkt from mdot')
+    plt.gca().legend(loc='upper left')
+    plt.show()
