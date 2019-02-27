@@ -327,13 +327,35 @@ int main(void)
   {
     //uint32_t random_data = rand();
     std::string random_data;
-    for (size_t i = 0; i < 200; i++) 
+    std::string dev_eui = mts::Text::bin2hexString(dot->getDeviceId()).c_str();
+    
+    for (size_t i = 0; i < 210; i++) 
     {
         random_data.append("h");
     }
-    
+    random_data.append("|");
     
     std::vector<uint8_t> data(random_data.begin(),random_data.end());
+    
+    for(size_t itr = 0; itr < dev_eui.size(); ++itr)
+    {
+        data.push_back(dev_eui[itr]);
+    }
+    
+    data.push_back('|');
+    uint16_t toa = (uint16_t)(dot->getTimeOnAir(233));
+    char toa_str[10];
+    sprintf(toa_str,"%d",toa);
+    //std::string toa_str = std::to_string(toa);
+    //data.push_back((toa >> 8) & 0xFF);
+    //data.push_back(toa & 0xFF);
+     
+    for(size_t itr = 0; itr < strlen(toa_str); ++itr)
+    {
+        data.push_back(toa_str[itr]);
+    }
+    
+    //data.push_back(dev_eui.begin(),dev_eui.end());
     
     
     // join network if not joined
@@ -351,7 +373,7 @@ int main(void)
     //logInfo("DUMMY TX DATA: %lu [0x%04X]", temp_data, temp_data);
     logInfo("CURRENT FEC ============================= %u", dot->getFec());
     logInfo("CURRENT DUTY CYCLE STATUS =============== %u", dot->getDisableDutyCycle());
-    logInfo("ToA based on current config ============= %u", dot->getTimeOnAir(240));
+    logInfo("ToA based on current config ============= %u", toa);
     
     ret_val = dot->send(data); // ack is enabled by default
     if(ret_val != mDot::MDOT_OK)
