@@ -22,7 +22,8 @@ Plot the toa based on mqtt logs
 def plot_predicted(path,t_sub1,t_sub2):
 	# print("t_sub1:\n{}".format(t_sub1))
 	# print("t_sub2:\n{}".format(t_sub2))
-	devEUIs = ['00-80-00-00-00-00-fe-37','00-80-00-00-04-00-98-02']
+	#devEUIs = ['00-80-00-00-00-00-fe-37','00-80-00-00-04-00-98-02']
+	devEUIs = ['00-80-00-00-00-00-fe-37','00-80-00-00-00-00-fe-36']
 
 	# Gateway RX
 	dev1,dev2 = parserFunct(path[0])
@@ -143,7 +144,8 @@ def plot_predicted(path,t_sub1,t_sub2):
     # plt.plot(time_list, y_axis, color='g',linestyle='None', markersize = 10.0)
     # plt.scatter(time_list,y_axis, label='Gateway Rx', color='g')
 	plt.scatter(prog_time1[:20],y_axis1, label='Gateway Rx(UpLink) Dev:008000000000fe37', color='g')
-	plt.scatter(prog_time2[:20],y_axis2, label='Gateway Rx(UpLink) Dev:0080000004009802', color='b')
+	#plt.scatter(prog_time2[:20],y_axis2, label='Gateway Rx(UpLink) Dev:0080000004009802', color='b')
+	plt.scatter(prog_time2[:20],y_axis2, label='Gateway Rx(UpLink) Dev:008000000000fe36', color='b')
 	plt.xlabel('Time in secs')
 
 def fileExists(file):
@@ -182,7 +184,8 @@ def parserFunct(file):
 						#print("Time:{}\n".format(res.split('|INFO')[0]))
 						dev1.append(res.split('|INFO')[0])
 						itr1 += 1
-				elif "00-80-00-00-04-00-98-02" in line and "Duplicate" in line:
+				elif "00-80-00-00-00-00-fe-36" in line and "Duplicate" in line:
+				#elif "00-80-00-00-04-00-98-02" in line and "Duplicate" in line:
 					obj = re.search(regex2,line,re.M|re.I)
 					res = obj.group(2)
 					#print("res2:{}".format(res))
@@ -284,9 +287,11 @@ def plot(filePath,devEUIs):
 	plt.plot(timeList_dev1[:20], y_axis1[:20], color='r', linestyle='None', markersize = 10.0)
 	plt.scatter(timeList_dev1[:20],y_axis1[:20],label = 'mqtt sub(marconi) Dev:008000000000fe37',color='c')
 	plt.plot(timeList_dev2[:20], y_axis2[:20], color='b', linestyle='None', markersize = 10.0)
-	plt.scatter(timeList_dev2[:20],y_axis2[:20], label = 'mqtt sub(marconi) Dev:0080000004009802',color='r')
+	#plt.scatter(timeList_dev2[:20],y_axis2[:20], label = 'mqtt sub(marconi) Dev:0080000004009802',color='r')
+	plt.scatter(timeList_dev2[:20],y_axis2[:20], label = 'mqtt sub(marconi) Dev:008000000000fe36',color='r')
 	#text_str = 'Data Transfer Path: marconi MQTT pub -> Gateway MQTT sub -> Gateway Tx -> mdot Rx\nData Transfer Path: mdot Tx -> Gateway Rx -> Gateway MQTT pub -> marconi MQTT sub\n'
-	plt.title('Gateway Rx Time vs mqtt sub(marconi) time for dev:0080000004009802 max PL: 113B @ SF8BW125 vs mqtt sub(marconi) dev:008000000000fe37 max PL: 234B @ SF7BW125')
+	plt.title('Gateway Rx Time vs mqtt sub(marconi) time for dev:008000000000fe37 max PL: 125B @ SF8BW125 vs mqtt sub(marconi) dev:008000000000fe36 max PL: 242B @ SF7BW125')
+	#plt.title('Gateway Rx Time vs mqtt sub(marconi) time for dev:008000000000fe37 max PL: 11B @ SF10BW125 vs mqtt sub(marconi) dev:008000000000fe36 max PL: 242B @ SF8BW500')
 	text_str = 'Data Transfer Path: mdot Tx -> Gateway Rx -> Gateway MQTT pub -> marconi MQTT sub\n'
 	fig.text(.5,0.01,text_str,wrap=True,ha='center')
 	return timeList_dev1,timeList_dev2
@@ -294,7 +299,7 @@ def plot(filePath,devEUIs):
 
 if __name__ == '__main__':
 
-	filePath = ['/home/iot/Desktop/new.log','/home/iot/Desktop/log_mqtt_marconi_sub.txt']
+	filePath = ['/home/adigal/Desktop/new_dr2_dr3.log','/home/adigal/Desktop/lora_marconi_dr2_dr3.txt']
 
 	#ret1,ret2 = plot(filePath)
     # if ret == -1:
@@ -303,7 +308,9 @@ if __name__ == '__main__':
 	#path = r"/home/hadigal/Desktop/test_lora_logs.log"
 	#plt.title('Gateway Rx Time vs actual time to mqtt sub tx pkt of size 11B@SF7BW125 from mdot vs mqtt pub pkt of 10B size to mdot')
 	#dev EUI logged to afile on marconi with mqtt sub time stamps
-	devEUIs = ['00-80-00-00-00-00-fe-37','00-80-00-00-04-00-98-02']
+	#devEUIs = ['00-80-00-00-00-00-fe-37','00-80-00-00-04-00-98-02']
+	devEUIs = ['00-80-00-00-00-00-fe-37','00-80-00-00-00-00-fe-36']
+
 	#filePath = ['/home/adigal/Downloads/log_mqttPub.txt','/home/adigal/Downloads/log_mqtt_marconi_sub.txt']
 	#plt.title('Gateway Rx Time vs mqtt sub(marconi) for dev:008000000400982b max PL: 113B @ SF8BW125 vs mqtt sub(marconi) dev:008000000000fe37 max PL: 234B @ SF7BW125')
 	ret1,ret2 = plot(filePath,devEUIs) # mqtt sub/pub plot
