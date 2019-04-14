@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import re
 import time, datetime
+import dateutil.parser as dp
 
 """
 File check
@@ -17,7 +18,7 @@ File check
 #         return False
 
 """
-Plot the toa based on mqtt logs
+Plot the gw rx timestamps and toa timestamps
 """
 def plot_predicted(path,t_sub1,t_sub2):
 	# print("t_sub1:\n{}".format(t_sub1))
@@ -63,13 +64,20 @@ def plot_predicted(path,t_sub1,t_sub2):
 	d_time1 = []
 	d_time2 = []
 
+	# for dup_time1 in dev1:
+	# 	a = time.strptime(dup_time1, "%H:%M:%S:%f")
+	# 	d_time1.append(datetime.timedelta(hours=a.tm_hour, minutes=a.tm_min, seconds=a.tm_sec).seconds)
+	#
+	# for dup_time2 in dev2:
+	# 	a = time.strptime(dup_time2, "%H:%M:%S:%f")
+	# 	d_time2.append(datetime.timedelta(hours=a.tm_hour, minutes=a.tm_min, seconds=a.tm_sec).seconds)
+
 	for dup_time1 in dev1:
-		a = time.strptime(dup_time1, "%H:%M:%S:%f")
-		d_time1.append(datetime.timedelta(hours=a.tm_hour, minutes=a.tm_min, seconds=a.tm_sec).seconds)
+		d_time1.append(int(dup_time1))
 
 	for dup_time2 in dev2:
-		a = time.strptime(dup_time2, "%H:%M:%S:%f")
-		d_time2.append(datetime.timedelta(hours=a.tm_hour, minutes=a.tm_min, seconds=a.tm_sec).seconds)
+		d_time2.append(int(dup_time2))
+
 
 	print("Time_dup1:{}\n".format(d_time1))
 	print("Time_dup2:{}\n".format(d_time2))
@@ -135,7 +143,7 @@ def plot_predicted(path,t_sub1,t_sub2):
 	prog_time2 = np.array(prog_time2[:20])
 
 	y_axis1 = np.array([1 for i in range(len(prog_time1))])
-	y_axis2 = np.array([2 for i in range(len(prog_time2))])
+	y_axis2 = np.array([3 for i in range(len(prog_time2))])
 
 	#print("len(prog_time1),len(prog_time1),len(y_axis1):",len(prog_time1),len(prog_time2),len(y_axis1),len(y_axis2))
 
@@ -143,6 +151,7 @@ def plot_predicted(path,t_sub1,t_sub2):
     # plt.plot(tSil, y_axis, color='g',linestyle='None', markersize = 10.0)
     # plt.plot(time_list, y_axis, color='g',linestyle='None', markersize = 10.0)
     # plt.scatter(time_list,y_axis, label='Gateway Rx', color='g')
+	plt.rcParams.update({'font.size': 16})
 	plt.scatter(prog_time1[:20],y_axis1, label='Gateway Rx(UpLink) Dev:008000000000fe37', color='g')
 	#plt.scatter(prog_time2[:20],y_axis2, label='Gateway Rx(UpLink) Dev:0080000004009802', color='b')
 	plt.scatter(prog_time2[:20],y_axis2, label='Gateway Rx(UpLink) Dev:008000000000fe36', color='b')
@@ -156,9 +165,46 @@ def fileExists(file):
         print("File:%s not found\n"%file)
         return -1
 
+
+def parserFunct(file):
+	regex2 = r'(.*)Device ID:(.*)'
+	regex3 = r'(.*)Msg Time: (.*)'
+	dev2 = []
+	dev1 = []
+
+	val1 = []
+	val2 = []
+	itr1 = 0
+	itr2 = 0
+
+	if fileExists(file) != -1:
+		with open(file,'r') as file:
+			for line in file:
+				if "00-80-00-00-00-00-fe-37" in line:
+					obj = re.search(regex3,line,re.M|re.I)
+					#print(obj);
+					res = obj.group(2);
+					# print("res.split()[0]:{}".format(res.split()[0]))
+					tp = dp.parse(res.split()[0])
+					t_sec = tp.strftime('%s')
+					dev1.append(t_sec)
+					itr1 += 1
+				elif "00-80-00-00-00-00-fe-36" in line:
+					obj = re.search(regex3,line,re.M|re.I)
+					#print(obj);
+					res = obj.group(2);
+					# print("res.split()[0]:{}".format(res))
+					tp = dp.parse(res.split()[0])
+					t_sec = tp.strftime('%s')
+					dev2.append(t_sec)
+					itr2 += 1
+		return dev1,dev2
+	else:
+		return False
+
 '''
-parse the gateway rx time of lora packet from dot
-'''
+parse the gateway rx time of lora packet from dot from lora-network-server.log file
+
 def parserFunct(file):
 	regex2 = r'(.*) Duplicate:(.*)'
 	regex3 = r'(.*)|INFO|(.*)'
@@ -199,8 +245,11 @@ def parserFunct(file):
 		return dev1,dev2
 	else:
 		return False
+'''
 
-# this is for the log file
+'''
+# this is for the toa item in the marconi log file
+'''
 def parserFunctToa(file,devList):
 
 	regex_dev_toa = r'(.*)TOA:(.*)'
@@ -228,7 +277,9 @@ def parserFunctToa(file,devList):
 	else:
 		return False
 
-
+'''
+To plot the mqtt_sub timestamps
+'''
 def creatTimeList(file,devEUIs):
     regex_dev_sub_time = r'(.*)Msg Time:(.*)'
 
@@ -280,26 +331,34 @@ def plot(filePath,devEUIs):
 	timeList_dev1 = np.array(timeList_dev1)
 	timeList_dev2 = np.array(timeList_dev2)
 
-	y_axis1 = np.array([3 for i in range(len(timeList_dev1))])
+	y_axis1 = np.array([2 for i in range(len(timeList_dev1))])
 	y_axis2 = np.array([4 for i in range(len(timeList_dev2))])
 
+	#fig = plt.figure(figsize=(18, 16), dpi= 100, facecolor='w', edgecolor='k')
 	fig = plt.figure()
+	#fig.canvas.draw()
 	plt.plot(timeList_dev1[:20], y_axis1[:20], color='r', linestyle='None', markersize = 10.0)
 	plt.scatter(timeList_dev1[:20],y_axis1[:20],label = 'mqtt sub(marconi) Dev:008000000000fe37',color='c')
 	plt.plot(timeList_dev2[:20], y_axis2[:20], color='b', linestyle='None', markersize = 10.0)
 	#plt.scatter(timeList_dev2[:20],y_axis2[:20], label = 'mqtt sub(marconi) Dev:0080000004009802',color='r')
 	plt.scatter(timeList_dev2[:20],y_axis2[:20], label = 'mqtt sub(marconi) Dev:008000000000fe36',color='r')
 	#text_str = 'Data Transfer Path: marconi MQTT pub -> Gateway MQTT sub -> Gateway Tx -> mdot Rx\nData Transfer Path: mdot Tx -> Gateway Rx -> Gateway MQTT pub -> marconi MQTT sub\n'
-	plt.title('Gateway Rx Time vs mqtt sub(marconi) time for dev:008000000000fe37 max PL: 125B @ SF8BW125 vs mqtt sub(marconi) dev:008000000000fe36 max PL: 242B @ SF7BW125')
+	plt.rcParams.update({'font.size': 12})
+	plt.title('Gateway Rx Time vs mqtt sub(marconi) time for dev:008000000000fe36 max PL: 125B @ SF8BW125 vs mqtt sub(marconi) dev:008000000000fe37 max PL: 242B @ SF7BW125')
 	#plt.title('Gateway Rx Time vs mqtt sub(marconi) time for dev:008000000000fe37 max PL: 11B @ SF10BW125 vs mqtt sub(marconi) dev:008000000000fe36 max PL: 242B @ SF8BW500')
+	plt.rcParams.update({'font.size': 16})
 	text_str = 'Data Transfer Path: mdot Tx -> Gateway Rx -> Gateway MQTT pub -> marconi MQTT sub\n'
 	fig.text(.5,0.01,text_str,wrap=True,ha='center')
+
 	return timeList_dev1,timeList_dev2
 
 
 if __name__ == '__main__':
 
-	filePath = ['/home/adigal/Desktop/new_dr2_dr3.log','/home/adigal/Desktop/lora_marconi_dr2_dr3.txt']
+	#filePath = ['/home/adigal/Desktop/new_dr2_dr3.log','/home/adigal/Desktop/lora_marconi_dr2_dr3.txt']
+
+	#filePath = ['/home/iot/Desktop/testJuypter/lora-network-server.log','/home/iot/Desktop/testJuypter/marconi_0325.txt']
+	filePath = ['/home/iot/Desktop/gw_tmst_log.txt','/home/iot/Desktop/log_mqtt_marconi_0413.txt']
 
 	#ret1,ret2 = plot(filePath)
     # if ret == -1:
@@ -313,6 +372,7 @@ if __name__ == '__main__':
 
 	#filePath = ['/home/adigal/Downloads/log_mqttPub.txt','/home/adigal/Downloads/log_mqtt_marconi_sub.txt']
 	#plt.title('Gateway Rx Time vs mqtt sub(marconi) for dev:008000000400982b max PL: 113B @ SF8BW125 vs mqtt sub(marconi) dev:008000000000fe37 max PL: 234B @ SF7BW125')
+	#plt.ion()
 	ret1,ret2 = plot(filePath,devEUIs) # mqtt sub/pub plot
 	plot_predicted(filePath,ret1,ret2)
 	plt.gca().legend(loc='best')
