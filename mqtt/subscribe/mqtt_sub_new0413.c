@@ -57,7 +57,7 @@ int msgarrvd(void *context, char *topicName, int topicLen, MQTTClient_message *m
   char *devTmst;
   devEUI = (char *)calloc(24,sizeof(*devEUI));
   uint8_t devItr = 0;
-  devTmst = (char *)calloc(10,sizeof(*devTmst));
+  devTmst = (char *)calloc(28,sizeof(*devTmst));
   uint8_t devTmstItr = 0;
   uint32_t itr2 = 0;
 
@@ -184,10 +184,10 @@ int msgarrvd(void *context, char *topicName, int topicLen, MQTTClient_message *m
     ++i;
     *payloadptr++;
   }
-  
-  devLen = i+9;
+
+  devLen = i+27;
   printf("devLen:%d\ti:%d\n",devLen,i);
-  while(devTmstItr < 9 && i < devLen)
+  while(devTmstItr < 27 && i < devLen)
   {
 	   //printf("\npayloadptr[%d]:%c\n",i,payloadptr[i]);
 	   //devEUI[itr] = payloadptr[i];
