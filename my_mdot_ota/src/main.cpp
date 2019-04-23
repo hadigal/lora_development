@@ -135,12 +135,15 @@ void display_config()
 
 int main(void)
 {
+  set_time(1555642776);
   //Invoking custom event handler for rx data
   LoraEvent radio_event;
   // COM PORT SUPPORT
   pc.baud(115200);
   // setting log level to trace i.e. the highest level for printing the log messages
-  mts::MTSLog::setLogLevel(mts::MTSLog::TRACE_LEVEL);
+  // NONE_LEVEL --> for no logging
+  // TRACE_LEVEL -> highest level
+  mts::MTSLog::setLogLevel(mts::MTSLog::NONE_LEVEL);
 
   // Selecting the US BAND as channel plan for TX and RX
   plan = new lora::ChannelPlan_US915();
@@ -297,7 +300,18 @@ int main(void)
         logInfo("TX PWR is ALREADY SET TO :%u dbm",tx_pwr);
     }
 
-    uint8_t nwTxDr = 2;
+    /*
+    DR0 : 11
+    DR1 : 53
+    DR2 : 125
+    DR3 : 242
+    DR4 : 242
+    */
+    //uint8_t nwTxDr = 2;
+    //uint8_t nwTxDr = 3;
+    //uint8_t nwTxDr = 1;
+    uint8_t nwTxDr = 0;
+    //uint8_t nwTxDr = 4;
     if(dot->setTxDataRate(nwTxDr) != mDot::MDOT_OK)
     {
         logError("Failed to set current Data Rate to DR2");
@@ -315,7 +329,7 @@ int main(void)
 
   logInfo("HR:Successfully joined the gateway...\n");
 
-  uint8_t toa = (uint8_t)(dot->getTimeOnAir(125));
+  uint8_t toa = (uint8_t)(dot->getTimeOnAir(11));
 
   while(true)
   {
@@ -324,14 +338,29 @@ int main(void)
     std::string random_data;
     std::string dev_eui = mts::Text::bin2hexString(dot->getDeviceId()).c_str();
 
-    for (size_t i = 0; i < 125; i++)
+    time_t sec = time(NULL);
+    char txTime[11];
+    snprintf(txTime,11,"%u",sec);
+
+    for (size_t i = 0; i < 11; i++)
     {
-        random_data.append("h");
+        if(i == 1)
+        {
+            random_data.append(txTime);
+            i = 11;
+        }
+        else
+        {
+            random_data.append("a");
+        }
+        //random_data.append("h");
     }
 
     //random_data.append("|");
 
     std::vector<uint8_t> data(random_data.begin(),random_data.end());
+
+
 
     /************ commenting for time being ****************
     for(size_t itr = 0; itr < dev_eui.size(); ++itr)
